@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Congratulations! You're signed in.</h1>
+<a href="{% url 'createblog' %}" class ="btn" >CreateBlog</a>
+
+<table>
+    <thead>
+    <tr>
+        <td>Header</td>
+        <td>Blog</td>
+        <td>Update</td>
+        <td>Delete</td>
+
+
+    </tr>
+    </thead>
+
+    <tbody>
+        {% for blog in blog_list %}
+        <tr>
+            <td>{{blog.blogheader}}</td>
+            <td>{{blog.blog}}</td>
+            <td><a href="{% url 'updateblog' blog.id %}">Edit</a></td>
+            <td>
+
+                <a href="{% url 'deleteblog' blog.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
